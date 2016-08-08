@@ -4,6 +4,8 @@
 #include <memkind.h>
 #include <mkl.h>
 
+#define PRINT 0
+
 double seconds()
 {
     struct timeval tv;
@@ -53,7 +55,9 @@ int main(int argc, char* argv[])
 		K = atoi(argv[3]);
 		ITER = atoi(argv[4]);
 		flag = atoi(argv[5]);
+#if PRINT
 		printf("M = %d N = %d K = %d ITER = %d flag=%d [0,1]\n",M,N,K,ITER,flag);
+#endif
 	}else
 	{
 		printf("%s M N K ITER mode(0:sgemv, 1:dgemv)\n" ,argv[0]);
@@ -87,7 +91,7 @@ int main(int argc, char* argv[])
 					a, &lda, b, &ldb, &beta, c, &ldc);
 
 		et = seconds();
-		printf("GFLOPS: %lf\n",ngops*ITER/(et-st));
+		printf("M = %d N = %d K = %d GFLOPS: %lf\n",M,N,K,ngops*ITER/(et-st));
 		bench_free(a);
 		bench_free(b);
 		bench_free(c);

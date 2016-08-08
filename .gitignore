@@ -2,3 +2,5 @@
 ~*
 *~
 gemv
+sgemv
+dgemv

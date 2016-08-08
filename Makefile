@@ -9,4 +9,4 @@ $(target): $(source)
 run: $(target)
 	./$(target)
 clean:
-	rm -rf *.o $(target)
+	rm -rf *.o $(target) sgemv dgemv

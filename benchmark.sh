@@ -3,8 +3,6 @@
 make -B
 ITER=20
 echo "ITER = $ITER"
-date >> sgemv 
-date >> dgemv
 echo "==============">>sgemv
 echo "==============">>dgemv
 

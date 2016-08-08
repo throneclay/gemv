@@ -1,11 +1,12 @@
 #!/bin/sh
 
 make -B
+ITER=20
 
-for i in $(seq 0 25)
+for i in $(seq 0 35)
 do
 size=$(expr 512 + $i \* 512)
 echo "size is $size"
-./gemv  $size $size 1 10 0 >> sgemv
-./gemv  $size $size 1 10 1 >> dgemv
+./gemv  $size $size 1 $ITER 0 >> sgemv
+./gemv  $size $size 1 $ITER 1 >> dgemv
 done

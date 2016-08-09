@@ -78,6 +78,10 @@ int main(int argc, char* argv[])
 		a = (float*)bench_malloc(sizeof(float)*M*K);
 		b = (float*)bench_malloc(sizeof(float)*K*N);
 		c = (float*)bench_malloc(sizeof(float)*M*N);
+		for (int i=0;i< M*K;i++)
+			a[i] = rand();
+		for (int i=0;i<K*N;i++)
+			b[i] = rand();
 		// warm up
 		sgemm(&ta, &tb, &M, &N, &K, &alpha,
 					a, &lda, b, &ldb, &beta, c, &ldc);
